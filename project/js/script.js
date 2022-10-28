@@ -34,7 +34,7 @@
 "Вы киноман". А если не подошло ни к одному варианту - "Произошла ошибка"
 
 4) Потренироваться и переписать цикл еще двумя способами
-*/
+*//*
 'use strict';
 
 let numberOfFilms;
@@ -59,7 +59,7 @@ const personalMovieDB = {
 
 function rememberMyFilms(){
     for (let i=0; i<2; i++){
-        const a = prompt('Один из последних просмотренных фильмов?', ''),
+        const a = prompt('Один из последних просмотренных фильмов?', '').trim(),
             b = prompt('На сколько оцените его?', '');
         if (a != null && b!= null && a!="" && b!=""&& a.length<50){
               personalMovieDB.movies[a] = b;
@@ -101,7 +101,7 @@ detectPersonalLevel();
             personalMovieDB.genres[i-1]= genre;
         }
       }
-      writeYourGenres();
+      writeYourGenres();*/
 
 
 
@@ -293,4 +293,67 @@ function sayHello(name) {
 }
 
 sayHello('Alex');
-*/
+
+
+
+function calculateVolumeAndArea(length) {
+    if (typeof (length) !== 'number' || length < 0 || !Number.isInteger(length)) {
+        return "При вычислении произошла ошибка";
+    }
+
+    let volume = 0,
+        area = 0;
+
+    volume = length * length * length;
+    // length ** 3 - это тоже самое, что и выше или варианты через цикл.
+    // ** - это оператор степени, напоминаю. Но онлайн редактор его не принимает =/
+    area = 6 * (length * length);
+
+    return `Объем куба: ${volume}, площадь всей поверхности: ${area}`;
+}
+
+calculateVolumeAndArea(5);
+
+
+function getCoupeNumber(seatNumber) {
+    if (typeof (seatNumber) !== 'number' || seatNumber < 0 || !Number.isInteger(seatNumber)) {
+        return "Ошибка. Проверьте правильность введенного номера места";
+    }
+
+    if (seatNumber === 0 || seatNumber > 36) {
+        return "Таких мест в вагоне не существует";
+    }
+
+    return Math.ceil(seatNumber / 4);
+    // тут очень много вариантов решения, но выбрал один из элегантных :)
+}
+
+getCoupeNumber(33);
+
+/*  Числа фибаначчи   
+
+function fib(num) {
+    if (typeof(num) !== 'number' || num <= 0 || !Number.isInteger(num)) {
+        return "";
+    }
+
+    let result = '';
+    let first = 0;
+    let second = 1;
+
+    for (let i = 0; i < num; i++) {
+        if (i + 1 === num) {
+            result += `${first}`;
+        } else {
+            result += `${first} `;
+        }
+
+        let third = first + second,
+        first = second,
+        second = third;
+    }
+
+    return result;
+}
+
+fib(5);*/
